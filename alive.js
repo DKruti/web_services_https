@@ -22,7 +22,16 @@ app.get('/startup',(req,res)=>{
     res.send("web services are started");
     console.log("web service started call");
 })
+// GET Route with custom headers
 
+app.get('/set-header', (req, res) => {
+
+  // Set custom response headers
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Custom-Header', 'Hello from GET route');
+  // Send a JSON response
+  res.send({ message: 'This is a GET request' });
+ });
 
   server.listen(port, () => {
     console.log('Server listening on'+ port);
